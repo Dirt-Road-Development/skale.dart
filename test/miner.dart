@@ -14,16 +14,32 @@
 /// You should have received a copy of the GNU Lesser General Public License
 /// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ///
-/// @file skale.dart
+/// @file miner.dart
 /// @author Sawyer Cutler
 /// @copyright Dirt Road Development 2022-Present
-///
-library skale;
 
-/// Contract Standards
-export 'src/contract/base_contract.dart';
+import 'package:skale/skale.dart';
+import 'package:test/test.dart';
+import 'package:web3dart/crypto.dart';
+import 'package:web3dart/web3dart.dart';
 
-/// Proof of Work
-export 'src/pow/anonymous.dart';
-export 'src/pow/miner.dart';
-export 'src/pow/wallet.dart';
+const CASE_1_BYTES =
+    "fcb3959dd0f53c43ae680f6251868d60147f6b7f2fe767743d3e525def0e2eb6";
+
+void main() {
+  group('Matching SKALE.js Tests', () {
+    final miner = SkalePowMiner(null);
+
+    test('Case 1', () async {
+      BigInt mine = miner.mineFreeGas(
+          21000,
+          EthereumAddress.fromHex("0x0000000000000000000000000000000000000000"),
+          0,
+          hexToBytes(CASE_1_BYTES));
+      expect(
+          mine,
+          equals(BigInt.parse(
+              "-1491953154814595559522385770564693355476610316307305530128735383911436243274")));
+    });
+  });
+}
