@@ -1,13 +1,10 @@
 name: skale
-description: A starting point for Dart libraries or applications.
+description: SKALE.dart - A community built and maintained library for Dart & Flutter Projects building on SKALE Network
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/Dirt-Road-Development/skale.dart
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
-
-# dependencies:
-#   path: ^1.8.0
 
 dev_dependencies:
   lints: ^2.0.0
@@ -16,5 +13,4 @@ dependencies:
   convert: ^3.1.1
   eth_sig_util: ^0.0.9
   http: ^0.13.5
-  pointycastle: ^3.6.2
   web3dart: ^2.6.1
