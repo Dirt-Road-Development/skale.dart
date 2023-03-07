@@ -14,16 +14,20 @@
 /// You should have received a copy of the GNU Lesser General Public License
 /// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ///
-/// @file skale.dart
+/// @file base_contract.dart
 /// @author Sawyer Cutler
 /// @copyright Dirt Road Development 2022-Present
 ///
-library skale;
+import 'package:http/http.dart';
+import 'package:web3dart/web3dart.dart';
 
-/// Contract Standards
-export 'src/contract/base_contract.dart';
+class BaseContract {
+  late Web3Client client;
+  late DeployedContract contract;
 
-/// Proof of Work
-export 'src/pow/anonymous.dart';
-export 'src/pow/miner.dart';
-export 'src/pow/wallet.dart';
+  BaseContract(
+      ContractAbi abi, EthereumAddress contractAddress, String rpcUrl) {
+    contract = DeployedContract(abi, contractAddress);
+    client = Web3Client(rpcUrl, Client());
+  }
+}

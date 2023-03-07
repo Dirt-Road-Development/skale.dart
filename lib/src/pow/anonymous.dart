@@ -14,16 +14,22 @@
 /// You should have received a copy of the GNU Lesser General Public License
 /// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ///
-/// @file skale.dart
+/// @file anonymous.dart
 /// @author Sawyer Cutler
 /// @copyright Dirt Road Development 2022-Present
-///
-library skale;
 
-/// Contract Standards
-export 'src/contract/base_contract.dart';
+import "dart:math";
 
-/// Proof of Work
-export 'src/pow/anonymous.dart';
-export 'src/pow/miner.dart';
-export 'src/pow/wallet.dart';
+import "package:skale/src/pow/wallet.dart";
+import "package:web3dart/credentials.dart";
+
+class AnonymousParams extends WalletParams {
+  AnonymousParams(String rpcUrl, BigInt? difficulty)
+      : super(difficulty,
+            rpcUrl: rpcUrl,
+            privateKey: EthPrivateKey.createRandom(Random.secure()));
+}
+
+class AnonymousPow extends WalletPow {
+  AnonymousPow(AnonymousParams params) : super(params);
+}

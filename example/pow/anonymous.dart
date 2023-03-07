@@ -14,16 +14,20 @@
 /// You should have received a copy of the GNU Lesser General Public License
 /// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ///
-/// @file skale.dart
+/// @file anonymous.dart
 /// @author Sawyer Cutler
 /// @copyright Dirt Road Development 2022-Present
-///
-library skale;
 
-/// Contract Standards
-export 'src/contract/base_contract.dart';
+import 'package:skale/skale.dart';
+import 'package:web3dart/credentials.dart';
+import 'package:web3dart/crypto.dart';
 
-/// Proof of Work
-export 'src/pow/anonymous.dart';
-export 'src/pow/miner.dart';
-export 'src/pow/wallet.dart';
+Future<void> main() async {
+  AnonymousPow pow = AnonymousPow(AnonymousParams(
+      "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar",
+      null));
+  await pow.send(TransactionParams(
+      to: EthereumAddress.fromHex("0xa9eC34461791162Cae8c312C4237C9ddd1D64336"),
+      data: hexToBytes(
+          "0x0c11dedd000000000000000000000000Da11eC5944D960008A3184Cc7F4A9C001b3B2Cff")));
+}

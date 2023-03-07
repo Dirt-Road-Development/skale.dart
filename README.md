@@ -1,39 +1,33 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+SKALE.dart | A SKALE Network SDK
+==================
+<!-- [![Code Coverage](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml) -->
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thegreataxios.svg?style=social&label=Follow%20%40thegreataxios)](https://twitter.com/thegreataxios)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/thegreataxios)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+A community run project designed to offer quick start modules to build on [SKALE Network](https://skale.space)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+Installation
+----------
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```bash
+dart pub add skale.dart
 ```
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Contribution
+----------
+If you are interested in making contributions to this project please start by checking out the [open issues](https://github.com/Dirt-Road-Development/skale.dart/issues)
+The project tracker can be found [here](https://github.com/orgs/Dirt-Road-Development/projects/4/views/6)
+
+
+Security & Liability
+----------
+SKALE.dart and all of its code and connected packages are WITHOUT ANY WARRANTY; without even the implied warranty for any user commerical or otherwise. The creators and contributors of this package may not be held liable for any damages, losses, issues, or problems caused resulting in the use of this package for any reason.
+
+<p style="font-weight: bold; color: red;">**EXPERIMENTAL NOTICE**<br />
+This package is under heavy development. Use at your own risk.
+</p>
+
+License
+----------
+All contributions are made under the GNU LESSER GENERAL PUBLIC LICENSE. See [License Here](./LICENSE)
