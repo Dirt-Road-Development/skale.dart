@@ -1,3 +1,3 @@
-## 1.0.0
+## 0.1.0
 
-- Initial version.
+- Add Proof of Work script to enable seamless onboarding to SKALE Network Chains
