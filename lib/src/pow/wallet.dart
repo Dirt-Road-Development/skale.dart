@@ -59,7 +59,7 @@ class WalletPow extends SkalePowMiner {
   Future<String> send(TransactionParams params) async {
     int nonce = await client.getTransactionCount(wallet.privateKey.address);
 
-    BigInt gasHash = mineFreeGas(
+    BigInt gasHash = await mineFreeGas(
         params.gas ?? 100000, wallet.privateKey.address, nonce, params.bytes);
 
     Transaction tx = Transaction(
@@ -67,7 +67,7 @@ class WalletPow extends SkalePowMiner {
         to: params.to,
         data: params.data,
         gasPrice: EtherAmount.fromBigInt(EtherUnit.wei, gasHash));
-
+    
     return await client.sendTransaction(wallet.privateKey, tx,
         chainId: null, fetchChainIdFromNetworkId: true);
   }

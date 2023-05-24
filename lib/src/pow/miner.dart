@@ -40,13 +40,13 @@ class SkalePowMiner {
     if (params != null) difficulty = params.difficulty;
   }
 
-  BigInt mineGasForTransaction(
-      int nonce, int gas, EthereumAddress from, Uint8List? bytes) {
+  Future<BigInt> mineGasForTransaction(
+      int nonce, int gas, EthereumAddress from, Uint8List? bytes) async {
     return mineFreeGas(gas, from, nonce, bytes);
   }
 
-  BigInt mineFreeGas(
-      int gasAmount, EthereumAddress from, int nonce, Uint8List? bytes) {
+  Future<BigInt> mineFreeGas(
+      int gasAmount, EthereumAddress from, int nonce, Uint8List? bytes) async {
     final int gasAmountInt = gasAmount.toInt();
     final BigInt nonceHash =
         bytesToInt(AbiUtil.soliditySHA3(["uint256"], [nonce]));
@@ -56,6 +56,9 @@ class SkalePowMiner {
     final BigInt maxNumber = getMaxNumber();
     final BigInt divConstant = BigInt.from(maxNumber / difficulty);
     BigInt candidate;
+
+    int iterations = 0;
+
     while (true) {
       candidate =
           bytesToInt(padUint8ListTo32(bytes ?? randomBytes(32, secure: true)));
@@ -63,10 +66,16 @@ class SkalePowMiner {
           bytesToInt(AbiUtil.soliditySHA3(["uint256"], [candidate]));
       BigInt resultHash = nonceAddressXOR ^ candidateHash;
       double externalGas = divConstant / resultHash;
+
       if (externalGas >= gasAmountInt) {
         break;
       }
+
+      if (iterations++ % 2000 == 0) {
+          await Future.delayed(Duration.zero);
+      }
     }
+
     return candidate;
   }
 }

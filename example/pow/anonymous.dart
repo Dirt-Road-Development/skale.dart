@@ -26,6 +26,7 @@ Future<void> main() async {
   AnonymousPow pow = AnonymousPow(AnonymousParams(
       "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar",
       null));
+
   await pow.send(TransactionParams(
       to: EthereumAddress.fromHex("0xa9eC34461791162Cae8c312C4237C9ddd1D64336"),
       data: hexToBytes(
