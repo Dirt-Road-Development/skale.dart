@@ -12,5 +12,5 @@ dev_dependencies:
 dependencies:
   convert: ^3.1.1
   eth_sig_util: ^0.0.9
-  http: ^0.13.5
+  http: ^0.13.6
   web3dart: ^2.6.1

@@ -23,7 +23,7 @@ import 'package:test/test.dart';
 import 'package:web3dart/crypto.dart';
 import 'package:web3dart/web3dart.dart';
 
-const CASE_1_BYTES =
+const case1Bytes =
     "fcb3959dd0f53c43ae680f6251868d60147f6b7f2fe767743d3e525def0e2eb6";
 
 void main() {
@@ -31,11 +31,11 @@ void main() {
     final miner = SkalePowMiner(null);
 
     test('Case 1', () async {
-      BigInt mine = miner.mineFreeGas(
+      BigInt mine = await miner.mineFreeGas(
           21000,
           EthereumAddress.fromHex("0x0000000000000000000000000000000000000000"),
           0,
-          hexToBytes(CASE_1_BYTES));
+          hexToBytes(case1Bytes));
       expect(
           mine,
           equals(BigInt.parse(
