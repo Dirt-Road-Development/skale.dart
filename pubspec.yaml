@@ -1,6 +1,6 @@
 name: skale
 description: SKALE.dart - A community built and maintained library for Dart & Flutter Projects building on SKALE Network
-version: 1.0.0
+version: 0.1.0 
 repository: https://github.com/Dirt-Road-Development/skale.dart
 
 environment:
